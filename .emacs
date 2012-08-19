@@ -29,7 +29,11 @@
 
 ;;;; theme config 
 (require 'color-theme) 
-(color-theme-dark-laptop)
+(setq color-theme-is-global t)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-dark-laptop)))
 ;;(color-theme-initialize)
 ;;(color-theme-tty-dark)
 ;;(color-theme-comidia)
