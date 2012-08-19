@@ -1,0 +1,10 @@
+*/
+.*
+!.emacs.d/
+!.emacs
+~*
+*.~*
+*~.*
+*~
+.emacs.d/session*
+*cache*
