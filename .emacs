@@ -1,7 +1,46 @@
+;============================= General Setting ==================================     
+
 (add-to-list 'load-path "~/.emacs.d")
 
 ;; recover buffers opening when startup
 (desktop-save-mode 1)
+
+;; share clipboard with system
+;; 系统剪贴板快捷键（C-c C-c复制，C-c C-v粘贴）  
+(global-set-key "\C-c\C-c" 'clipboard-kill-ring-save)  
+(global-set-key "\C-c\C-v" 'clipboard-yank)  
+
+;; C-Space被输入法占用，改用C-c m来标记文本块  
+(global-set-key "\C-cm" 'set-mark-command)  
+
+;; 关闭toolbar  
+(tool-bar-mode)  
+
+;; 显示总行号
+;; display the total number of lines in the Emacs modeline
+(defvar my-mode-line-buffer-line-count nil)
+(make-variable-buffer-local 'my-mode-line-buffer-line-count)
+
+(setq-default mode-line-format
+              '("  " mode-line-modified
+                (list 'line-number-mode "  ")
+                (:eval (when line-number-mode
+                         (let ((str "L%l"))
+                           (when (and (not (buffer-modified-p)) my-mode-line-buffer-line-count)
+                             (setq str (concat str "/" my-mode-line-buffer-line-count)))
+                           str)))
+                "  %p"
+                (list 'column-number-mode "  C%c")
+                "  " mode-line-buffer-identification
+                "  " mode-line-modes))
+
+(defun my-mode-line-count-lines ()
+  (setq my-mode-line-buffer-line-count (int-to-string (count-lines (point-min) (point-max)))))
+
+(add-hook 'find-file-hook 'my-mode-line-count-lines)
+(add-hook 'after-save-hook 'my-mode-line-count-lines)
+(add-hook 'after-revert-hook 'my-mode-line-count-lines)
+(add-hook 'dired-after-readin-hook 'my-mode-line-count-lines)
 
 ;; 用ibuffer代替默认的buffer switch
 ;; 参考 http://www.emacswiki.org/emacs/IbufferMode
@@ -103,13 +142,15 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;;;; graphviz
+
+;============================= Tools ============================================ 
+
+;----------------------------- graphviz --------------------------
 ;; C-c c 编译dot文件
 ;; C-c p 预览生成的图片
 (load-file "~/.emacs.d/graphviz-dot-mode.el")
 
-
-;;;; org-mode
+;----------------------------- org-mode --------------------------
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
@@ -122,22 +163,19 @@
                              "~/org/home.org"
                              "~/org/invest.org"))
 
+;----------------------------- erlang --------------------------
 ;;;; Erlang
-(setq load-path (cons  "/usr/local/lib/erlang/lib/tools-2.6.7/emacs/" load-path))
-(setq erlang-root-dir "/usr/local/lib/erlang")
-(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
-(require 'erlang-start)
+;(setq load-path (cons  "/usr/local/lib/erlang/lib/tools-2.6.7/emacs/" load-path))
+;(setq erlang-root-dir "/usr/local/lib/erlang")
+;(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+;(require 'erlang-start)
 
 ;;; Distel for erlang
-(add-to-list 'load-path "/usr/local/share/distel/elisp")
-(require 'distel)
-(distel-setup)
+;(add-to-list 'load-path "/usr/local/share/distel/elisp")
+;(require 'distel)
+;(distel-setup)
 
-;=============================================================================
-;C C++ enviorment
-;=============================================================================
-;;;; Coding style
-
+;----------------------------- C C++ --------------------------
 (require 'cc-mode)
 (c-set-offset 'inline-open 0)
 (c-set-offset 'friend '-)
@@ -244,7 +282,7 @@
 (quick-jump-default-keybinding)
 
 
-;;;;=========== auto-complete =====================
+;;;; auto-completex
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 (require 'auto-complete-config)
 
@@ -255,7 +293,8 @@
 (local-set-key "." 'semantic-complete-self-insert)
 (local-set-key ">" 'semantic-complete-self-insert)
 
-;;;;============= go lang =========================
+
+;----------------------------- go --------------------------
 (require 'go-mode-load)
 (require 'go-autocomplete)
 
@@ -345,3 +384,5 @@
   (interactive)
   (show-all)
   (shell-command-on-region (point-min) (point-max) "go tool fix -diff"))
+
+
