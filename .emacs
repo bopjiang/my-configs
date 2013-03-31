@@ -16,6 +16,10 @@
 ;; 关闭toolbar  
 (tool-bar-mode)  
 
+;; 窗口操作
+(require'window-numbering)
+(window-numbering-mode 1)
+
 ;; 显示总行号
 ;; display the total number of lines in the Emacs modeline
 (defvar my-mode-line-buffer-line-count nil)

@@ -9,3 +9,4 @@
 *.dat
 .emacs.d/session*
 *cache*
+*.elc
