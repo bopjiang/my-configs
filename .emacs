@@ -1,24 +1,28 @@
-;============================= General Setting ==================================     
+;============================= General Setting ==================================
 
 (add-to-list 'load-path "~/.emacs.d")
+;; emacs的模块名称必须同文件名一致，同java类似
 
 ;; recover buffers opening when startup
 (desktop-save-mode 1)
 
 ;; share clipboard with system
-;; 系统剪贴板快捷键（C-c C-c复制，C-c C-v粘贴）  
-(global-set-key "\C-c\C-c" 'clipboard-kill-ring-save)  
-(global-set-key "\C-c\C-v" 'clipboard-yank)  
+;; 系统剪贴板快捷键（C-c C-c复制，C-c C-v粘贴）
+(global-set-key "\C-c\C-c" 'clipboard-kill-ring-save)
+(global-set-key "\C-c\C-v" 'clipboard-yank)
 
-;; C-Space被输入法占用，改用C-c m来标记文本块  
-(global-set-key "\C-cm" 'set-mark-command)  
+;; C-Space被输入法占用，改用C-c m来标记文本块
+(global-set-key "\C-cm" 'set-mark-command)
 
-;; 关闭toolbar  
-(tool-bar-mode)  
+;; 关闭toolbar
+(tool-bar-mode)
 
 ;; 窗口操作
-(require'window-numbering)
+(require 'window-numbering)
 (window-numbering-mode 1)
+
+;; deal with trail white spaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; 显示总行号
 ;; display the total number of lines in the Emacs modeline
@@ -57,7 +61,7 @@
 ;; 比如 “ /日记 ” ，就会只显示buffer名称中有日记这两个字的
 ;; / 后面支持正则表达式 如 /200?
 ;; 撤销过滤按两下/，就是按 “ // ”
-;; 在ibuffer中，按英文等号 “ = ” 对为保存文件和它上一个保存版本做diff 
+;; 在ibuffer中，按英文等号 “ = ” 对为保存文件和它上一个保存版本做diff
 ;; 按 g 刷新文件目录
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
@@ -78,9 +82,9 @@
 
 (global-set-key [f11] 'toggle-fullscreen)
 
-;; (toggle-fullscreen)
+;;(toggle-fullscreen)
 
-;;打开文件时自动启用 hideshow (hs-minor-mode) 
+;;打开文件时自动启用 hideshow (hs-minor-mode)
 ;; hide-show
 (setq hs-allow-nesting t)
 
@@ -113,8 +117,8 @@
 ;; GNU Emacs 23 has a built-in key combination:
 ;; `C-x C-+’ and ‘C-x C--’ to increase or decrease the buffer text size
 
-;;;; theme config 
-(require 'color-theme) 
+;;;; theme config
+(require 'color-theme)
 (setq color-theme-is-global t)
 (eval-after-load "color-theme"
   '(progn
@@ -137,8 +141,8 @@
 (setq read-quoted-char-radix 10)         ; use decimal, not octal
 
 ;;;; Edit
-;(define-key   global-map   "\C-M-g "   'goto-line) 
-(global-set-key   [?\C-\M-g]   'goto-line) 
+;(define-key   global-map   "\C-M-g "   'goto-line)
+(global-set-key   [?\C-\M-g]   'goto-line)
 
 ;;; smart complete
 (add-to-list 'load-path
@@ -147,7 +151,7 @@
 (yas-global-mode 1)
 
 
-;============================= Tools ============================================ 
+;============================= Tools ============================================
 
 ;----------------------------- graphviz --------------------------
 ;; C-c c 编译dot文件
@@ -166,6 +170,7 @@
 (setq org-agenda-files (list "~/org/tech.org"
                              "~/org/home.org"
                              "~/org/invest.org"))
+(setq org-mobile-directory "~/Dropbox/orgmode")
 
 ;----------------------------- erlang --------------------------
 ;;;; Erlang
@@ -188,13 +193,13 @@
 (defun my-c-mode-common-hook()
   (setq tab-width 4 indent-tabs-mode nil)
   ;;; 设置缩进为4
-  (setq c-basic-offset 4) 
+  (setq c-basic-offset 4)
   ;; (c-set-style "linux")
   ;;; hungry-delete and auto-newline
-  (c-toggle-auto-hungry-state 1)
+  ;; (c-toggle-auto-hungry-state 1)
   ;;按键定义
   ;;(define-key c-mode-base-map [(control \`)] 'hs-toggle-hiding)
-  ;;(define-key c-mode-base-map [(return)] 'newline-and-indent)
+  (define-key c-mode-base-map [(return)] 'newline-and-indent)
   ;;(define-key c-mode-base-map [(f7)] 'compile)
   (define-key c-mode-base-map [(meta \`)] 'c-indent-command)
   ;; (define-key c-mode-base-map [(tab)] 'hippie-expand)
@@ -220,7 +225,7 @@
 
 (add-hook 'c++-mode-common-hook 'my-c++-mode-common-hook)
 
-;;;; CSCOPE, for reading C/C++ code 
+;;;; CSCOPE, for reading C/C++ code
 (load-file "~/.emacs.d/xcscope.el")
 (require 'xcscope)
 
