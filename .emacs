@@ -88,6 +88,10 @@
 ;; hide-show
 (setq hs-allow-nesting t)
 
+;; show-paren-mode allows one to see matching pairs of parentheses and other characters.
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+
 (add-hook 'c-mode-hook
 	  '(lambda ()
 	     (hide-ifdef-mode t)
