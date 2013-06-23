@@ -84,6 +84,9 @@
 
 ;;(toggle-fullscreen)
 
+;; Disable mail function
+(global-set-key "\C-xm" 'execute-extended-command)
+
 ;;打开文件时自动启用 hideshow (hs-minor-mode)
 ;; hide-show
 (setq hs-allow-nesting t)
