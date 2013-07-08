@@ -14,6 +14,12 @@
 ;; C-Space被输入法占用，改用C-c m来标记文本块
 (global-set-key "\C-cm" 'set-mark-command)
 
+;; global mark ring
+(global-set-key "\C-x\C-p" 'pop-global-mark)
+
+;; winner-mode
+(winner-mode 1)
+
 ;; 关闭toolbar
 (tool-bar-mode)
 
