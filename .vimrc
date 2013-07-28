@@ -80,3 +80,13 @@ set hlsearch
 """ Complile graphviz and display the generated png file
 "autocmd BufRead *.dot nmap <F8> :w<CR>:!dot -Tpng -o %<.png % && open %<.png<CR><CR>
 autocmd BufRead *.dot nmap <F8> :w<CR>:!dot -Tpng -o %<.png % && eog %<.png<CR><CR>
+
+""" golang support
+
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+
