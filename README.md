@@ -10,6 +10,7 @@ $ cp -r /tmp/my-config/. ~/
 ~~~
 
 ### setup vim
+  use bundle to manage all vim plugins
 ~~~bash
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 $ vim +PluginInstall +qall
