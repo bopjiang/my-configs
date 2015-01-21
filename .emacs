@@ -1,4 +1,9 @@
 ;============================= General Setting ==================================
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
 
 (add-to-list 'load-path "~/.emacs.d")
 ;; emacs的模块名称必须同文件名一致，同java类似
