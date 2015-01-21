@@ -209,11 +209,11 @@
 
 ;;;;; speedbar
 ;(speedbar 1)
-(when window-system          ; start speedbar if we're using a window system
-    (speedbar t))
+;(when window-system          ; start speedbar if we're using a window system
+;    (speedbar t))
 
+;(speedbar-add-supported-extension ".go")
 
-(speedbar-add-supported-extension ".go")
 (add-hook
  'go-mode-hook
  '(lambda ()
@@ -302,3 +302,11 @@
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (flet ((process-list ())) ad-do-it))
+
+
+;---------------------------------markdown mode--------------------------
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
