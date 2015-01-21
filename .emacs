@@ -101,13 +101,6 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 
-(add-hook 'c-mode-hook
-	  '(lambda ()
-	     (hide-ifdef-mode t)
-	     (semantic-default-c-setup)
-	     (hs-minor-mode t)
-             (define-key hs-minor-mode-map [f12] 'hs-toggle-hiding)))
-
 (add-hook 'emacs-lisp-mode-hook
           (lambda()
             (hs-minor-mode t)
@@ -194,124 +187,9 @@
                              "~/org/invest.org"))
 (setq org-mobile-directory "~/Dropbox/orgmode")
 
-;----------------------------- erlang --------------------------
-;;;; Erlang
-;(setq load-path (cons  "/usr/local/lib/erlang/lib/tools-2.6.7/emacs/" load-path))
-;(setq erlang-root-dir "/usr/local/lib/erlang")
-;(setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
-;(require 'erlang-start)
-
-;;; Distel for erlang
-;(add-to-list 'load-path "/usr/local/share/distel/elisp")
-;(require 'distel)
-;(distel-setup)
-
-;----------------------------- C C++ --------------------------
-(require 'cc-mode)
-(c-set-offset 'inline-open 0)
-(c-set-offset 'friend '-)
-(c-set-offset 'substatement-open 0)
-
-(defun my-c-mode-common-hook()
-  (setq tab-width 4 indent-tabs-mode nil)
-  ;;; 设置缩进为4
-  (setq c-basic-offset 4)
-  ;; (c-set-style "linux")
-  ;;; hungry-delete and auto-newline
-  ;; (c-toggle-auto-hungry-state 1)
-  ;;按键定义
-  ;;(define-key c-mode-base-map [(control \`)] 'hs-toggle-hiding)
-  (define-key c-mode-base-map [(return)] 'newline-and-indent)
-  ;;(define-key c-mode-base-map [(f7)] 'compile)
-  (define-key c-mode-base-map [(meta \`)] 'c-indent-command)
-  ;; (define-key c-mode-base-map [(tab)] 'hippie-expand)
-  ;; (define-key c-mode-base-map [(tab)] 'my-indent-or-complete)
-  (define-key c-mode-base-map [(meta ?/)] 'semantic-ia-complete-symbol-menu)
-  ;;预处理设置
-  ;;(setq c-macro-shrink-window-flag t)
-  ;;(setq c-macro-preprocessor "cpp")
-  ;;(setq c-macro-cppflags " ")
-  ;;(setq c-macro-prompt-flag t)
-  ;;(setq hs-minor-mode t)
-  ;;(setq abbrev-mode t)
-)
-
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-
-;;;;我的C++语言编辑策略
-(defun my-c++-mode-hook()
-  (setq tab-width 4 indent-tabs-mode nil)
-  (setq c-basic-offset 4)
-;;  (define-key c++-mode-map [f3] 'replace-regexp)
-)
-
-(add-hook 'c++-mode-common-hook 'my-c++-mode-common-hook)
-
 ;;;; CSCOPE, for reading C/C++ code
 (load-file "~/.emacs.d/xcscope.el")
 (require 'xcscope)
-
-;;;; CEDIT
-
-;; Load CEDET.
-;; See cedet/common/cedet.info for configuration details.
-;; IMPORTANT: For Emacs >= 23.2, you must place this *before* any
-;; CEDET component (including EIEIO) gets activated by another
-;; package (Gnus, auth-source, ...).
-(load-file "~/.emacs.d/plugins/cedet-1.1/common/cedet.el")
-
-;; Enable EDE (Project Management) features
-(global-ede-mode 1)
-
-;; Enable EDE for a pre-existing C++ project
-;; (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
-
-;; Enabling Semantic (code-parsing, smart completion) features
-;; Select one of the following:
-
-;; * This enables the database and idle reparse engines
-;(semantic-load-enable-minimum-features)
-
-;; * This enables some tools useful for coding, such as summary mode,
-;;   imenu support, and the semantic navigator
-;(semantic-load-enable-code-helpers)
-
-;; * This enables even more coding tools such as intellisense mode,
-;;   decoration mode, and stickyfunc mode (plus regular code helpers)
-(semantic-load-enable-gaudy-code-helpers)
-
-
-;; Enable SRecode (Template management) minor-mode.
-;; (global-srecode-minor-mode 1)
-(add-to-list 'load-path "~/.emacs.d/plugins/ecb-2.40")
-(require 'ecb)
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.40")
- '(ecb-source-path (quote ("~/src/agile_sd/Payroll/PayrollCode/"))))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
-
-
-;;; CEDET中还有一个不错的工具是speedbar，你可以用它在多个文件中快速切换
-;;(global-set-key [(f4)] 'speedbar)
-
-;;; Smart Compile
-(require 'smart-compile)
-(global-set-key [f9] 'smart-compile)
-
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/quick-jump"))
-(require 'quick-jump)
-(quick-jump-default-keybinding)
-
 
 ;;;; auto-completex
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
@@ -325,12 +203,16 @@
 (local-set-key ">" 'semantic-complete-self-insert)
 
 
-;----------------------------- go --------------------------
+;----------------------------- Golang --------------------------
 (require 'go-mode-load)
 (require 'go-autocomplete)
 
-;; speedbar
-;; (speedbar 1)
+;;;;; speedbar
+;(speedbar 1)
+(when window-system          ; start speedbar if we're using a window system
+    (speedbar t))
+
+
 (speedbar-add-supported-extension ".go")
 (add-hook
  'go-mode-hook
@@ -420,6 +302,3 @@
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
   (flet ((process-list ())) ad-do-it))
-
-
-
