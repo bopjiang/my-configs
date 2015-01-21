@@ -26,7 +26,7 @@
 (winner-mode 1)
 
 ;; 关闭toolbar
-(tool-bar-mode)
+(tool-bar-mode -1)
 
 ;; 窗口操作
 (require 'window-numbering)
