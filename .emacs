@@ -133,11 +133,11 @@
 (setq color-theme-is-global t)
 (eval-after-load "color-theme"
   '(progn
-     (color-theme-initialize)
+       (color-theme-initialize)
 ;;     (color-theme-dark-laptop)
 ;;       (color-theme-hober)
-;;     (color-theme-tty-dark)
-;;     (color-theme-comidia)
+         (color-theme-tty-dark)
+;;       (color-theme-comidia)
    ))
 
 
@@ -315,3 +315,4 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(put 'upcase-region 'disabled nil)

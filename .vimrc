@@ -59,7 +59,7 @@ set tabstop=4        "四个空格。 In PEP8 should be '8'
 set softtabstop=4    " 
 set autoindent
 set shiftwidth=4     "自动缩进的宽度。
-set textwidth=79     "一行的最大长度79
+"""set textwidth=79     "一行的最大长度79
 :syntax on
 set nonumber
 
