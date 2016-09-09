@@ -54,7 +54,7 @@ set fileencodings=utf-8,gb18030,utf-16,big5
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Added on 22/12/2010 by Peter Jiang
 """ ref: http://wangchunsheng.com/article-view-256.html
-set expandtab        "使用space代替tab.a
+;;; set expandtab        "使用space代替tab.a
 set tabstop=4        "四个空格。 In PEP8 should be '8'
 set softtabstop=4    " 
 set autoindent
