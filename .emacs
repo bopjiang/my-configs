@@ -40,6 +40,22 @@
 
 (desktop-save-mode 1)
 
+;;;; Full sreen on startup
+(defun toggle-fullscreen ()
+  "Toggle full screen on X11"
+  (interactive)
+  (when (eq window-system 'x)
+    (set-frame-parameter
+     nil 'fullscreen
+     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))))
+
+(defun fullscreen ()
+  (interactive)
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+                 '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
+
+(global-set-key [f11] 'toggle-fullscreen)
+
 ;; ======================================================
 ;;                  Go Development Enviornment Configure
 ;; ======================================================
