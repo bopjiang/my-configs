@@ -20,6 +20,8 @@
 ;; hide scroll bar
 (scroll-bar-mode -1)
 
+;; show line number on left side
+(global-linum-mode t)
 
 ;; show column-number
 (column-number-mode 1)
