@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 
 ;; show line number on left side
-(global-linum-mode t)
+; (global-linum-mode t)   ;; no need for most case
 
 ;; show column-number
 (column-number-mode 1)
