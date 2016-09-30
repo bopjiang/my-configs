@@ -148,6 +148,7 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-support-shift-select 'always)
 
 
 ;; ======================================================
@@ -155,3 +156,4 @@
 ;; ======================================================
 ;; using systemd
 ;; https://www.emacswiki.org/emacs/EmacsAsDaemon#toc8
+
