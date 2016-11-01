@@ -100,7 +100,7 @@
 
 ;; set go path
 (setenv "GOROOT"   "/data/tools/go/")
-(setenv "GOPATH"   (concat (getenv "HOME") "ws"))
+(setenv "GOPATH"   (concat (getenv "HOME") "/ws"))
 
 ;; normally, I put all the go tools in default PATH; /usr/local/bin/
 ;; go get github.com/nsf/gocode; mv $GOPATH/bin/gocode /usr/local/bin/
@@ -157,3 +157,4 @@
 ;; using systemd
 ;; https://www.emacswiki.org/emacs/EmacsAsDaemon#toc8
 
+(put 'upcase-region 'disabled nil)
