@@ -1,4 +1,3 @@
-
 ;; -*- lexical-binding: t -*-
 (setq debug-on-error t)
 
@@ -45,11 +44,48 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
+(require-package 'wgrep)
+(require-package 'diminish)
+(require-package 'scratch)
+(require-package 'command-log-mode)
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
+(require 'init-dired)
+(require 'init-editing-utils)
+(require 'init-projectile)
+(require 'init-markdown)
 (require 'init-org)
+(require 'init-python)
 (require 'init-rust)
+(require 'init-toml)
+(require 'init-yaml)
+(require 'init-docker)
+(require 'init-paredit)
+;;(require 'init-lisp)
+;;(require 'init-slime)
+;;(require 'init-clojure)
+;;(require 'init-clojure-cider)
+;;(require 'init-common-lisp)
+(when *spell-check-support-enabled*
+  (require 'init-spelling))
+(require 'init-misc)
+;;----------------------------------------------------------------------------
+;; Allow access from emacsclient
+;;----------------------------------------------------------------------------
+(add-hook 'after-init-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
+
+;;----------------------------------------------------------------------------
+;; Variables configured via the interactive 'customize' interface
+;;----------------------------------------------------------------------------
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
 ;;----------------------------------------------------------------------------
