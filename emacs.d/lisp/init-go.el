@@ -16,7 +16,7 @@
 (require-package 'company-go)
 (require-package 'go-eldoc)
 (require-package 'go-rename)
-(require-package 'go-dlv)
+;;(require-package 'go-dlv)
 
 ;; set GOPATH by run .env shell scripts
 (defun get-env (path)
