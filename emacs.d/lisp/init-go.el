@@ -1,7 +1,7 @@
 ;;;init mode for google golang code which
 ;;;depend on http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
 ;;; make sure all those go packages installed or just install as followed:
-;;; go get -u github.com/nsf/gocode
+;;; go get -u github.com/mdempsky/gocode
 ;;; go get -u golang.org/x/tools/cmd/guru
 ;;; go get -u github.com/rogpeppe/godef
 ;;; go get -u golang.org/x/tools/cmd/goimports
