@@ -56,6 +56,7 @@
 (require 'init-projectile)
 (require 'init-markdown)
 (require 'init-org)
+(require 'init-go)
 (require 'init-python)
 (require 'init-rust)
 (require 'init-toml)
