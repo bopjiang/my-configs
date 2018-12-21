@@ -48,11 +48,15 @@
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'command-log-mode)
+(require 'init-frame-hooks)
+(require 'init-xterm)
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
 (require 'init-isearch)
+(require 'init-grep)
+(require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flycheck)
 (require 'init-recentf)
@@ -87,6 +91,22 @@
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 (require 'init-misc)
+(require 'init-folding)
+(require 'init-dash)
+
+;;(require 'init-twitter)
+;; (require 'init-mu)
+(require 'init-ledger)
+;; Extra packages which don't require any configuration
+(when *is-a-mac*
+  (require-package 'osx-location))
+(unless (eq system-type 'windows-nt)
+  (maybe-require-package 'daemons))
+(maybe-require-package 'dotenv-mode)
+(when (maybe-require-package 'uptimes)
+  (setq-default uptimes-keep-count 200)
+  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
+
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
