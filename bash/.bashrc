@@ -16,6 +16,9 @@ if [ -f "$SCRIPT_DIR/bash/custom_bashrc.sh" ]; then
         source $SCRIPT_DIR/bash/custom_bashrc.sh
 fi
 
+## PATH
+export PATH=/usr/local/bin:$PATH
+
 ## editor
 alias e='emacsclient -t'
 alias ec='emacsclient -c'
