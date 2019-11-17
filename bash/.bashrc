@@ -1,11 +1,4 @@
-if [[ $0 == "zsh" ]]; then
-        SCRIPT_DIR=${0:a:h}
-else
-        SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-fi
-
 SCRIPT_DIR=`dirname ${BASH_SOURCE[0]-$0}`
-
 
 if [[ -z $SCRIPT_DIR ]]; then
         echo "SCRIPT_DIR empty!!"
