@@ -15,6 +15,9 @@ fi
 ## PATH
 export PATH=/usr/local/bin:$PATH
 
+## LANG
+export LC_MESSAGES=en_US.UTF-8
+
 ## editor
 alias e='emacsclient -t'
 alias ec='emacsclient -c'
@@ -50,6 +53,8 @@ source "${SCRIPT_DIR}/../zsh/tmux.zsh"
 alias f='git difftool -d HEAD .'
 alias gs="git status"
 alias gd="git diff HEAD"
+alias cl="cloc --exclude-dir=vendor "
+alias grep="egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 
 ## other productive tools
 export PATH="${SCRIPT_DIR}/../bin:$PATH"
@@ -59,5 +64,8 @@ if [[ $0 == "zsh" ]]; then
         export HISTSIZE=9999
         export SAVEHIST=$HISTSIZE
         setopt hist_ignore_all_dups
+        # do not record command with space perfix
         setopt hist_ignore_space
+        setopt hist_fcntl_lock 2>/dev/null
+        setopt hist_reduce_blanks
 fi
