@@ -9,9 +9,12 @@ if [[ -z $SCRIPT_DIR ]]; then
         exit 1
 fi
 
-## import custom profile
+## import default profile
 source $SCRIPT_DIR/bash/default_bashrc.sh
-source $SCRIPT_DIR/bash/custom_bashrc.sh
+## import custom profile
+if [ -f "$SCRIPT_DIR/bash/custom_bashrc.sh" ]; then
+        source $SCRIPT_DIR/bash/custom_bashrc.sh
+fi
 
 ## editor
 alias e='emacsclient -t'
@@ -59,4 +62,3 @@ if [[ $0 == "zsh" ]]; then
         setopt hist_ignore_all_dups
         setopt hist_ignore_space
 fi
-
