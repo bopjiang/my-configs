@@ -26,7 +26,7 @@ alias ec='emacsclient -c'
 ### replace system default awk and sed on mac
 if [ "$(uname)" = "Darwin" ]; then
         alias awk=gawk
-        alias sed=ased
+        alias sed=gsed
         export PATH="/usr/local/opt/ncurses/bin:$PATH"
 fi
 
