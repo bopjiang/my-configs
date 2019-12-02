@@ -5,8 +5,8 @@ config of emacs and vim
 ### download
 ~~~bash
 $ mkdir /tmp/my-config
-$ git clone https://github.com/bopjiang/my-configs.git /tmp/my-config
-$ cp -r /tmp/my-config/. ~/
+$ git clone https://github.com/bopjiang/my-configs.git ~/code/my-configs
+$ ln -s ~/code/my-configs/emacs.d ~/.emacs.d
 ~~~
 
 ### emacs config reference
