@@ -35,7 +35,8 @@ if [[ ! -z $GO_PKG_DIR ]]; then
         PATH=$GO_PKG_DIR/bin:$PATH
 fi
 
-if [[ ! -z $GOPATH ]]; then
+### if GOPATH contains multiple path, we do not put them in path
+if [[ ! -z $GOPATH && $GOPATH != *[:]* ]]; then
         export PATH=$GOPATH/bin:$PATH
 fi
 
