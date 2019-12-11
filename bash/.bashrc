@@ -57,7 +57,7 @@ alias cl="cloc --exclude-dir=vendor "
 alias grep="egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 
 ## other productive tools
-export PATH="${SCRIPT_DIR}/../bin:$PATH"
+export PATH=$(dirname ${SCRIPT_DIR})/bin:$PATH
 
 ## other zsh profile
 if [[ $0 == "zsh" ]]; then
