@@ -57,6 +57,7 @@ alias gs="git status"
 alias gd="git diff HEAD"
 alias cl="cloc --exclude-dir=vendor "
 alias grep="egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
+alias ll="ls -al"
 
 ## other productive tools
 export PATH=$(dirname ${SCRIPT_DIR})/bin:$PATH
