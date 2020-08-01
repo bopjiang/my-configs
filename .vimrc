@@ -6,6 +6,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+
+" Disable vim automatic visual mode on mouse select
+set mouse-=a
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
