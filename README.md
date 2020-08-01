@@ -16,7 +16,7 @@ $ ln -s ~/my-configs/emacs.d ~/
 $ ln -s ~/my-configs/.vimrc ~/
 ```
 
-## bash
+## bash/zsh
 
 add
 `source "$HOME/my-configs/bash/.bashrc"`
@@ -24,6 +24,9 @@ to .zshrc if you use *zsh*.
 
 add *customized config* to *$HOME/my-configs/bash/custom_bashrc.sh*
 
+```bash
+chsh -s /bin/zsh
+```
 
 ##  References
 
