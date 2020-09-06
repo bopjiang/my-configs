@@ -8,3 +8,5 @@
 *.elc
 *.log
 custom_bashrc.sh
+emacs.d/transient/
+
