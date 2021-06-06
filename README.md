@@ -13,7 +13,9 @@ $ ln -s ~/my-configs/emacs.d ~/
 
 ## vim
 ```bash
-$ ln -s ~/my-configs/.vimrc ~/
+# forget about the config, I use emacs now...
+# ln -s ~/my-configs/.vimrc ~/.vimrc
+$ ln -s ~/my-configs/.vimrc_simple ~/.vimrc
 ```
 
 ## tmux
