@@ -16,6 +16,11 @@ $ ln -s ~/my-configs/emacs.d ~/
 $ ln -s ~/my-configs/.vimrc ~/
 ```
 
+## tmux
+```bash
+$ ln -s ~/my-configs/tmux.conf ~/.tmux.conf
+```
+
 ## bash/zsh
 
 add
