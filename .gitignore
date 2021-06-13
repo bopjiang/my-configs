@@ -9,9 +9,5 @@
 *.elc
 *.log
 custom_bashrc.sh
-<<<<<<< HEAD
 emacs.d/transient/
-
-=======
-emacs.d/transient
->>>>>>> dev-202008
+bin/
