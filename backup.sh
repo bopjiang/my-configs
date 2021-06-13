@@ -12,8 +12,6 @@ BACKUP_DIR=${BACKUP_TMP}/${BACKUP_DIRNAME}
 BACKUP_FILE=${SCRIPT_DIR}/backup/conf_repo_backup_${TS}.tar.gz
 mkdir -p ${BACKUP_DIR}
 
-cp -r bin ${BACKUP_DIR}/
-cp -r bash ${BACKUP_DIR}/
 
 cd ${SCRIPT_DIR}
 rsync -avr ./bin ${BACKUP_DIR}/
