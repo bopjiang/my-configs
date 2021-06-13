@@ -19,7 +19,7 @@ cd ${SCRIPT_DIR}
 rsync -avr ./bin ${BACKUP_DIR}/
 # not working
 # rsync -zarv  --include "*/" --exclude="*" --include='bash/custom_bashrc.sh' ./bash ${BACKUP_DIR}/
-rsync -avr ./bash_custom  ${BACKUP_DIR}/
+rsync -avr ./customized  ${BACKUP_DIR}/
 
 cd ${BACKUP_TMP}
 tar -czvf ${BACKUP_FILE} ${BACKUP_DIRNAME}
