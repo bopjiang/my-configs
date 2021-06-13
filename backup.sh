@@ -16,8 +16,10 @@ cp -r bin ${BACKUP_DIR}/
 cp -r bash ${BACKUP_DIR}/
 
 cd ${SCRIPT_DIR}
-rsync -avr --exclude='path1/to/exclude' --exclude='path2/to/exclude' ./bin ${BACKUP_DIR}/
-rsync -am --include='bash/custom_bashrc.sh' --exclude='*' ./bash ${BACKUP_DIR}/
+rsync -avr ./bin ${BACKUP_DIR}/
+# not working
+# rsync -zarv  --include "*/" --exclude="*" --include='bash/custom_bashrc.sh' ./bash ${BACKUP_DIR}/
+rsync -avr ./bash_custom  ${BACKUP_DIR}/
 
 cd ${BACKUP_TMP}
 tar -czvf ${BACKUP_FILE} ${BACKUP_DIRNAME}
