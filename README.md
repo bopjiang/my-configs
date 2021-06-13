@@ -8,7 +8,7 @@ $ git clone https://github.com/bopjiang/my-configs.git ~/my-configs
 ```
 ## emacs
 ```bash
-$ ln -s ~/my-configs/emacs.d ~/
+$ ln -s ~/my-configs/emacs.d ~/.emacs.d
 ```
 
 ## vim
