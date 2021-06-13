@@ -8,8 +8,8 @@ fi
 ## import default profile
 source $SCRIPT_DIR/default_bashrc.sh
 ## import custom profile
-if [ -f "$SCRIPT_DIR/custom_bashrc.sh" ]; then
-        source $SCRIPT_DIR/custom_bashrc.sh
+if [ -f "$SCRIPT_DIR/../customized/custom_bashrc.sh" ]; then
+        source $SCRIPT_DIR/../customized/custom_bashrc.sh
 fi
 
 ## PATH

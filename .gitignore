@@ -8,7 +8,7 @@
 *cache*
 *.elc
 *.log
-custom_bashrc.sh
+customized/
 emacs.d/transient/
 bin/
 backup/
