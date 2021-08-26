@@ -12,3 +12,4 @@ customized/
 emacs.d/transient/
 bin/
 backup/
+\.#*
