@@ -53,8 +53,10 @@ source "${SCRIPT_DIR}/../zsh/tmux.zsh"
 
 ## git
 alias f='git difftool -d HEAD .'
+alias f1='git difftool -d HEAD~1 .'
 alias gs="git status"
 alias gd="git diff HEAD"
+alias gd1="git diff HEAD~1"
 alias cl="cloc --exclude-dir=vendor "
 alias grep="egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias ll="ls -al"
