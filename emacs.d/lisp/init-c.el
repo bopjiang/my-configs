@@ -5,6 +5,7 @@
 ;;; The Linux kernel coding style is very strict
 (require-package 'xcscope)
 (setq cscope-do-not-update-database t)
+(add-hook 'c-mode-hook #'cscope-minor-mode)
 
 ;; make cscope
 
