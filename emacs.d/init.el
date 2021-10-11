@@ -74,6 +74,7 @@
 (require 'init-compile)
 (require 'init-markdown)
 (require 'init-org)
+(require 'init-c)
 (require 'init-go)
 (require 'init-haml)
 (require 'init-python)
