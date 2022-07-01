@@ -91,6 +91,8 @@
 ;;(require 'init-common-lisp)
 (when *spell-check-support-enabled*
   (require 'init-spelling))
+(with-eval-after-load "ispell"
+    (setq ispell-personal-dictionary "~/.config/emacs/hunspell_personal"))
 (require 'init-misc)
 (require 'init-folding)
 (require 'init-dash)
