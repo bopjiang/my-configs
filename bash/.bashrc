@@ -61,6 +61,8 @@ alias cl="cloc --exclude-dir=vendor "
 alias grep="egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias ll="ls -al"
 
+alias dt='date +"%Y-%m-%d_%H%M%S"'
+
 ## other productive tools
 export PATH=$(dirname ${SCRIPT_DIR})/bin:$PATH
 
